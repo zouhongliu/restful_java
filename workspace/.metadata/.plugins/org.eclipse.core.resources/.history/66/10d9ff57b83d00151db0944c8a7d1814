@@ -1,0 +1,62 @@
+package food;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Response;
+
+
+@Path("/food")
+public class Food {
+
+	 // The Java method will process HTTP GET requests, this is just for test without database
+	 @GET
+	 @Path("/test")
+	 // The Java method will produce content identified by the MIME Media
+	 @Produces("application/json")
+	 public String getClichedMessage() {
+	     // Return some cliched textual content
+	     return "Hello World";
+	 };
+	
+	 
+	@GET
+	@Path("{id}")
+	@Produces("application/json")
+	public Response getFoodById(@PathParam("id") String id) {
+
+		return Response.status(200)
+			//.entity("getUserByName is called, name : " + id).build();
+		.entity("{ "+"id:" + id + ", name:'name1', company:'company1', nutritionTable:'nutritionTable1'}").build();
+		
+	}
+	 
+	
+	@GET
+	@Path("/Autocomplete/{name}")
+	@Produces("application/json")
+	public Response getFoodByName(@PathParam("name") String name) {
+
+		return Response.status(200)
+			.entity("getUserByName is called, name : " + name).build();
+
+	}
+	
+	
+	@POST
+	@Produces("application/json")
+	public Response setfood(
+		@QueryParam("name") String name,
+		@QueryParam("company") String company,
+		@QueryParam("foodNutritionTable") String nutritionTable) {
+		
+		return Response.status(200)
+				.entity("setFood is called, name : " + name + ", company : " + company
+						+ ", foodNutritionTable" + nutritionTable).build();
+	}
+	
+
+}

@@ -1,0 +1,7 @@
+INDEX VERSION 1.3+/Users/zhl/Desktop/try/java/workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+3751936923.index
+303149042.index
+85503656.index
+2096093023.index
+1699941915.index
+4001809628.index

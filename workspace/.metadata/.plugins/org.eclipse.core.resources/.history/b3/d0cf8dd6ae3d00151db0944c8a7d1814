@@ -1,0 +1,81 @@
+package food;
+/*
+import javax.ws.rs.GET;
+import javax.ws.rs.Produces;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+*/
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+
+/*
+
+//The Java class will be hosted at the URI path "/helloworld"
+@Path("/food")
+public class Food {
+
+ // The Java method will process HTTP GET requests
+ @GET
+ @Path("/zhl")
+ // The Java method will produce content identified by the MIME Media
+ // type "text/plain"
+ @Produces("text/plain")
+ public String getClichedMessage() {
+     // Return some cliched textual content
+     return "Hello World";
+ };
+
+
+    @GET
+    @Path("/Autocomplete/{foodname}")
+    @Produces("text/xml")
+    public String getUser(@PathParam("foodname") String foodName) {
+    	     // Return some cliched textual content
+    	//String name = "Hello World" + foodName;
+    	//String name = "add add add";
+    	     //return name;
+    	return "Hello World";
+    }
+}
+*/
+
+
+@Path("/food")
+public class Food {
+
+	
+	 // The Java method will process HTTP GET requests
+	 @GET
+	 @Path("/zhl1")
+	 // The Java method will produce content identified by the MIME Media
+	 // type "text/plain"
+	 @Produces("text/plain")
+	 public String getClichedMessage() {
+	     // Return some cliched textual content
+	     return "Hello World";
+	 };
+	
+	 
+	@GET
+	@Path("{id}")
+	public Response getFoodByName(@PathParam("id") String id) {
+
+		return Response.status(200)
+			.entity("getUserByName is called, name : " + id).build();
+
+	}
+	 
+	
+	@GET
+	@Path("/Autocomplete/{name}")
+	public Response getFoodByName(@PathParam("name") String name) {
+
+		return Response.status(200)
+			.entity("getUserByName is called, name : " + name).build();
+
+	}
+
+}
